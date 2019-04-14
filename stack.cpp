@@ -76,3 +76,44 @@ void printstack (){
 		cout<<endl;
 	}
 }
+void menu(){
+	int pilih;
+	cout<<"=================================="<<endl;
+	cout<<"==========|Menu Pilihan|=========="<<endl;
+	cout<<"=================================="<<endl;
+	cout<<"|  1. Push Data\t\t\t |"<<endl;
+	cout<<"|\t\t\t\t |"<<endl;
+	cout<<"|  2. Pop Data\t\t\t |"<<endl;
+	cout<<"|\t\t\t\t |"<<endl;
+	cout<<"|  3. Top Data\t\t\t |"<<endl;
+	cout<<"=================================="<<endl;
+	cout<<"Masukkan pilihan : ";
+	cin>>pilih;
+
+	switch(pilih){
+		case 1:push();
+			break;
+		case 2:pop();
+      		break;
+		case 3:topdata();
+			break;
+		default:
+			cout<<"Pilihan Tidak Ada"<<endl;
+	}
+}
+int main (){
+	int i,pilih;
+	cout<<"Jumlah data yang ingin di masukkan :";
+	cin>>i;
+	for(int k=0;k<i;k++){
+		listdata();
+	}
+	printstack();
+	cout<<endl<<endl;
+	while(pilih>0){
+		menu();
+		printstack();
+		cout<<endl<<endl;
+	}
+	return 0;
+}
