@@ -4,35 +4,17 @@
 #include <iostream>
 using namespace std;
 
-struct element{
+struct Element{
 	int data;
-	element *next;
+	Element *next;
 };
-struct element *top=NULL;
+struct Element *top=NULL;
 bool isEmpty(){
 	return top==NULL;
 }
-void listdata(){
-	element *baru,*bantu;
-	baru = new element;
-	cout<<"Masukkan data :";
-	cin>>baru->data;
-	baru->next =NULL;
-	if(isEmpty()){
-		top=baru;
-		top->next=NULL;
-	}
-	else{
-		bantu=top;
-		while(bantu->next!=NULL){
-			bantu=bantu->next;
-		}
-		bantu->next=baru;
-	}	
-}
 void push(){
-	element *baru;
-	baru=new element;
+	Element *baru;
+	baru=new Element;
 	cout<<"Masukkan Data :";
 	cin>>baru->data;
 	baru->next=NULL;
@@ -46,7 +28,7 @@ void push(){
 	}
 }
 void pop(){
-	element *baru;
+	Element *baru;
 	if(top==NULL){
 		cout<<"Stack masih kosong"<<endl;
 	}
@@ -56,7 +38,7 @@ void pop(){
 		delete baru;
 	}
 }
-void topdata(){
+void getTop(){
 	if(isEmpty()){
 		cout<<"Stack masih kosong"<<endl;
 	}
@@ -65,7 +47,7 @@ void topdata(){
 	}
 }
 void printstack (){
-	element *bantu;
+	Element *bantu;
 	if(isEmpty()){
 		cout<<"Stack Kosong"<<endl;
 	}
@@ -96,8 +78,8 @@ void menu(){
 		case 1:push();
 			break;
 		case 2:pop();
-      		break;
-		case 3:topdata();
+			break;
+		case 3:getTop();
 			break;
 		default:
 			cout<<"Pilihan Tidak Ada"<<endl;
@@ -105,15 +87,18 @@ void menu(){
 }
 int main (){
 	int i,pilih;
+	cout<<"==========Membuat Stack Awal=========="<<endl;
 	cout<<"Jumlah data yang ingin di masukkan :";
 	cin>>i;
 	for(int k=0;k<i;k++){
-		listdata();
+		push();
 	}
+	cout<<endl;
 	printstack();
 	cout<<endl<<endl;
 	while(pilih>0){
 		menu();
+		cout<<endl;
 		printstack();
 		cout<<endl<<endl;
 	}
