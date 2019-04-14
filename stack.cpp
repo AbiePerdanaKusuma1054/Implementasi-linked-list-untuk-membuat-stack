@@ -46,7 +46,6 @@ void push(){
 	}
 }
 void pop(){
-	int q;
 	element *baru;
 	if(top==NULL){
 		cout<<"Stack masih kosong"<<endl;
